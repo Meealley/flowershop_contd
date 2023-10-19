@@ -14,13 +14,13 @@ class LogRegister extends StatelessWidget {
           TextSpan(
             text: 'Don\'t have an account?',
             style: GoogleFonts.epilogue(
-              textStyle: TextStyle(fontSize: 15, color: AppConst.kBkDark),
+              textStyle: const TextStyle(fontSize: 15, color: AppConst.kBkDark),
             ),
           ),
           TextSpan(
             text: 'Register',
             style: GoogleFonts.epilogue(
-              textStyle: TextStyle(fontSize: 15, color: AppConst.kGreen),
+              textStyle: const TextStyle(fontSize: 15, color: AppConst.kGreen),
             ),
           ),
         ],

@@ -16,10 +16,10 @@ class ForgotpasswordLabel extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RememberMe(),
+          const RememberMe(),
           Text(
             "Forgot password?",
-            style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 16)),
+            style: GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 16)),
           )
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:logon/pages/login/widget/forgot_password.dart';
 import 'package:logon/pages/login/widget/social_login.dart';
 import 'package:logon/pages/onboarding/widgets/onboarding_controls.dart';
@@ -8,11 +9,14 @@ import 'package:google_fonts/google_fonts.dart';
 class LoginForm extends StatefulWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final GlobalKey<FormState> formKey;
+  // final Function(String?) onSaved;
 
   const LoginForm({
     super.key,
     required this.emailController,
     required this.passwordController,
+    required this.formKey,
   });
 
   @override
@@ -21,16 +25,28 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   bool _obscureText = false;
+  // final Function(String?) onSaved;
+  String _email = "";
+  String _password = "";
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
         flex: 100,
         child: Form(
+          key: widget.formKey,
           child: Column(
             children: [
               TextFormField(
                 controller: widget.emailController,
+                validator: (email) {
+                  if (email == null || email.isEmpty) {
+                    return "Please enter a valid email";
+                  } else if (!EmailValidator.validate(email)) {
+                    return "Your email is not valid";
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: "Email address",
                   hintText: "Enter your email address",
@@ -38,6 +54,11 @@ class _LoginFormState extends State<LoginForm> {
                     textStyle: TextStyle(fontSize: 17, color: AppConst.kGreen),
                   ),
                 ),
+                onSaved: (email) {
+                  setState(() {
+                    _email = widget.emailController.text = email!;
+                  });
+                },
                 keyboardType: TextInputType.emailAddress,
                 style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
               ),
@@ -46,6 +67,14 @@ class _LoginFormState extends State<LoginForm> {
               ),
               TextFormField(
                 controller: widget.passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a valid value";
+                  } else if (value.length < 6) {
+                    return "Password must be at least 6 characters";
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                   labelText: "Password",
                   hintText: "Enter your password",
@@ -74,6 +103,11 @@ class _LoginFormState extends State<LoginForm> {
                 keyboardType: TextInputType.emailAddress,
                 obscureText: _obscureText,
                 style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
+                onSaved: (password) {
+                  setState(() {
+                    _password = widget.passwordController.text = password!;
+                  });
+                },
               ),
               SizedBox(
                 height: 8,
@@ -87,7 +121,10 @@ class _LoginFormState extends State<LoginForm> {
                 width: double.infinity,
                 child: CustomButton(
                     onPressed: () {
-                      print("login butn");
+                      if (widget.formKey.currentState!.validate()) {
+                        widget.formKey.currentState!.save();
+                        print("login values $_email and $_password");
+                      }
                     },
                     title: "Login"),
               ),

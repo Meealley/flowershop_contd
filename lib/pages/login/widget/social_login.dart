@@ -12,10 +12,10 @@ class SocialMedia extends StatelessWidget {
         Text(
           "or continue with : ",
           style: GoogleFonts.epilogue(
-            textStyle: TextStyle(fontSize: 16, color: AppConst.kBKLight),
+            textStyle: const TextStyle(fontSize: 16, color: AppConst.kBKLight),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
         Row(
@@ -27,7 +27,7 @@ class SocialMedia extends StatelessWidget {
                     shape: MaterialStatePropertyAll(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: AppConst.kBKLight,
                           )),
                     ),
@@ -41,7 +41,7 @@ class SocialMedia extends StatelessWidget {
                   ),
                   label: Text("Google",
                       style: GoogleFonts.epilogue(
-                        textStyle: TextStyle(fontSize: 16, color: Colors.black),
+                        textStyle: const TextStyle(fontSize: 16, color: Colors.black),
                       ))),
             )
           ],

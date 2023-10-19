@@ -38,7 +38,7 @@ class _RememberMeState extends State<RememberMe> {
           ),
           Text(
             "Remember Me",
-            style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 16)),
+            style: GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 16)),
           ),
         ],
       ),
