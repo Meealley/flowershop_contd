@@ -1,4 +1,4 @@
-import 'package:logon/pages/login/login_page.dart';
+import 'package:logon/pages/splashscreen.dart';
 import 'package:logon/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
             floatingLabelBehavior: FloatingLabelBehavior.auto,
             floatingLabelStyle: GoogleFonts.epilogue(
-                textStyle: const TextStyle(fontSize: 20, color: AppConst.kGreen)),
+                textStyle:
+                    const TextStyle(fontSize: 20, color: AppConst.kGreen)),
             isCollapsed: true,
             alignLabelWithHint: true,
             enabledBorder: OutlineInputBorder(
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                 GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 14))),
       ),
       title: "Flower Shop",
-      home: const LoginPage(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logon/pages/login/widget/login_register.dart';
-import 'package:logon/theme/app_colors.dart';
 
-import 'forgot_password.dart';
 import 'login_form.dart';
 
 class Body extends StatefulWidget {
@@ -36,27 +34,27 @@ class _BodyState extends State<Body> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
               "Welcome Back,👋🏻",
               style: GoogleFonts.epilogue(
                   textStyle:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                      const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
               "Log in to start using your Petals Account",
               style: GoogleFonts.epilogue(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 15,
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             LoginForm(
@@ -65,8 +63,8 @@ class _BodyState extends State<Body> {
               emailController: _emailController,
               passwordController: _passwordController,
             ),
-            Spacer(),
-            LogRegister(),
+            const Spacer(),
+            const LogRegister(),
             // ForgotpasswordLabel()
           ],
         ),

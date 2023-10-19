@@ -1,3 +1,4 @@
+import 'package:logon/pages/login/login_page.dart';
 import 'package:logon/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,13 @@ class OnboardingControls extends StatelessWidget {
             height: 50,
             child: CustomButton(
               title: "Get Started",
-              onPressed: onNextPressed,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              },
             )),
       );
     }
