@@ -1,4 +1,5 @@
 import 'package:logon/pages/login/widget/forgot_password.dart';
+import 'package:logon/pages/login/widget/social_login.dart';
 import 'package:logon/pages/onboarding/widgets/onboarding_controls.dart';
 import 'package:logon/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -24,72 +25,80 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+        flex: 100,
         child: Form(
-      child: Column(
-        children: [
-          TextFormField(
-            controller: widget.emailController,
-            decoration: InputDecoration(
-              labelText: "Email address",
-              hintText: "Enter your email address",
-              labelStyle: GoogleFonts.epilogue(
-                textStyle: TextStyle(fontSize: 17, color: AppConst.kGreen),
+          child: Column(
+            children: [
+              TextFormField(
+                controller: widget.emailController,
+                decoration: InputDecoration(
+                  labelText: "Email address",
+                  hintText: "Enter your email address",
+                  labelStyle: GoogleFonts.epilogue(
+                    textStyle: TextStyle(fontSize: 17, color: AppConst.kGreen),
+                  ),
+                ),
+                keyboardType: TextInputType.emailAddress,
+                style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
               ),
-            ),
-            keyboardType: TextInputType.emailAddress,
-            style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
-          ),
-          SizedBox(
-            height: 23,
-          ),
-          TextFormField(
-            controller: widget.passwordController,
-            decoration: InputDecoration(
-              labelText: "Password",
-              hintText: "Enter your password",
-              suffixIconConstraints: BoxConstraints(
-                minHeight: 40,
-                maxHeight: 40,
-                minWidth: 40,
-                maxWidth: 40,
+              SizedBox(
+                height: 23,
               ),
-              suffixIcon: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _obscureText = !_obscureText;
-                  });
-                  print("Suffix icons");
-                },
-                child: _obscureText
-                    ? Icon(Icons.visibility)
-                    : Icon(Icons.visibility_off),
+              TextFormField(
+                controller: widget.passwordController,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  hintText: "Enter your password",
+                  suffixIconConstraints: BoxConstraints(
+                    minHeight: 40,
+                    maxHeight: 40,
+                    minWidth: 40,
+                    maxWidth: 40,
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                      print("Suffix icons");
+                    },
+                    child: _obscureText
+                        ? Icon(Icons.visibility)
+                        : Icon(Icons.visibility_off),
+                  ),
+                  suffixStyle: TextStyle(color: AppConst.kGreen),
+                  labelStyle: GoogleFonts.epilogue(
+                    textStyle: TextStyle(fontSize: 17, color: AppConst.kGreen),
+                  ),
+                ),
+                keyboardType: TextInputType.emailAddress,
+                obscureText: _obscureText,
+                style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
               ),
-              suffixStyle: TextStyle(color: AppConst.kGreen),
-              labelStyle: GoogleFonts.epilogue(
-                textStyle: TextStyle(fontSize: 17, color: AppConst.kGreen),
+              SizedBox(
+                height: 8,
               ),
-            ),
-            keyboardType: TextInputType.emailAddress,
-            obscureText: _obscureText,
-            style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 18)),
+              ForgotpasswordLabel(),
+              SizedBox(
+                height: 24,
+              ),
+              SizedBox(
+                height: 55,
+                width: double.infinity,
+                child: CustomButton(
+                    onPressed: () {
+                      print("login butn");
+                    },
+                    title: "Login"),
+              ),
+              SizedBox(
+                height: 28,
+              ),
+              // Spacer(),
+              SocialMedia(),
+              // Spacer()
+            ],
           ),
-          SizedBox(
-            height: 8,
-          ),
-          ForgotpasswordLabel(),
-          SizedBox(
-            height: 90,
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: CustomButton(
-                onPressed: () {
-                  print("login butn");
-                },
-                title: "Login"),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logon/pages/login/widget/login_register.dart';
+import 'package:logon/theme/app_colors.dart';
 
 import 'forgot_password.dart';
 import 'login_form.dart';
@@ -14,6 +16,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -34,7 +37,7 @@ class _BodyState extends State<Body> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 20,
+              height: 2,
             ),
             Text(
               "Welcome Back,👋🏻",
@@ -54,12 +57,15 @@ class _BodyState extends State<Body> {
               ),
             ),
             SizedBox(
-              height: 28,
+              height: 20,
             ),
             LoginForm(
+              formKey: _formKey,
               emailController: _emailController,
               passwordController: _passwordController,
             ),
+            Spacer(),
+            LogRegister(),
             // ForgotpasswordLabel()
           ],
         ),
