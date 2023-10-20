@@ -70,7 +70,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               style: GoogleFonts.epilogue(
                   textStyle: const TextStyle(fontSize: 18)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextFormField(
@@ -102,7 +102,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               style: GoogleFonts.epilogue(
                   textStyle: const TextStyle(fontSize: 18)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextFormField(
@@ -136,7 +136,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               style: GoogleFonts.epilogue(
                   textStyle: const TextStyle(fontSize: 18)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextFormField(
@@ -145,8 +145,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   return "Please enter a valid value";
                 } else if (value.length < 6) {
                   return "Password must be at least 6 characters";
-                } else if (value != widget.confirmPasswordController.text) {
-                  return "Password does not match";
                 }
                 return null;
               },
@@ -188,16 +186,19 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 suffixStyle: const TextStyle(color: AppConst.kGreen),
               ),
               obscureText: _obscureText,
+              onSaved: (password) {
+                setState(() {
+                  _password = widget.passwordController.text = password!;
+                });
+              },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter a valid value";
-                } else if (value != widget.passwordController.text) {
-                  return "Password does not match!";
                 }
                 return null;
               },
@@ -239,8 +240,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 suffixStyle: const TextStyle(color: AppConst.kGreen),
               ),
               obscureText: _obscureText2,
+              onSaved: (confirmPasswod) {
+                setState(() {
+                  _confirmPassword =
+                      widget.confirmPasswordController.text = confirmPasswod!;
+                });
+              },
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             // Spacer(),

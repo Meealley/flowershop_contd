@@ -1,5 +1,3 @@
-import 'package:logon/pages/login/login_page.dart';
-import 'package:logon/pages/register/register_page.dart';
 import 'package:logon/pages/splashscreen.dart';
 import 'package:logon/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +46,7 @@ class MyApp extends StatelessWidget {
                 GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 14))),
       ),
       title: "Flower Shop",
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

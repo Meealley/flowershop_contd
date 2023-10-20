@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:logon/pages/onboarding/widgets/onboarding_controls.dart';
 
 import 'register_form.dart';
 
@@ -43,11 +42,11 @@ class _BodyState extends State<Body> {
             Text(
               "Create an Account to start trading",
               style: GoogleFonts.epilogue(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                 fontSize: 18,
               )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             RegistrationForm(

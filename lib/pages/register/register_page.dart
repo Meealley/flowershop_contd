@@ -16,10 +16,10 @@ class RegisterPage extends StatelessWidget {
           backgroundColor: AppConst.kGreen,
           title: Text(
             "Sign Up",
-            style: GoogleFonts.epilogue(textStyle: TextStyle(fontSize: 20)),
+            style: GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 20)),
           ),
         ),
-        body: Body(),
+        body: const Body(),
       ),
     );
   }
