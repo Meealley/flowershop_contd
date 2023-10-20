@@ -32,7 +32,7 @@ class _BodyState extends State<Body> {
       child: Padding(
         padding: const EdgeInsets.all(13),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
               height: 2,
@@ -40,8 +40,8 @@ class _BodyState extends State<Body> {
             Text(
               "Welcome Back,👋🏻",
               style: GoogleFonts.epilogue(
-                  textStyle:
-                      const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                  textStyle: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(
               height: 12,
