@@ -33,7 +33,8 @@ class _bodyState extends State<body> {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Text(
               "Please enter your email address to request a password reset",
-              style: GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 18)),
+              style: GoogleFonts.epilogue(
+                  textStyle: const TextStyle(fontSize: 18)),
             ),
           ),
           const SizedBox(

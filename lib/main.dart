@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
                 GoogleFonts.epilogue(textStyle: const TextStyle(fontSize: 14))),
       ),
       title: "Flower Shop",
-      home: const RegisterPage(),
+      home: SplashScreen(),
     );
   }
 }
